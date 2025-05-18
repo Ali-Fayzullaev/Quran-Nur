@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { useEffect, useState } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
-
+import iconAyah from "../assets/icon-ayahs.png";
 function Surah() {
   const [selectedQari, setSelectedQari] = useState("ar.abdulbasitmurattal");
   const [selectedTranslation, setSelectedTranslation] = useState("");
@@ -152,9 +152,37 @@ function Surah() {
                     </div>
 
                     {/* Arabic Text */}
-                    <div className="col-7 col-md-6 p-2 bg-white">
-                      <p
-                        className="text-end mb-0 arabic-text"
+                    <div className="col-10 col-md-11 p-2 bg-white text-start d-flex justify-content-end align-items-end">
+                      <span className="position-relative d-inline-flex align-items-center justify-content-center">
+                        {/* Иконка аята */}
+                        <img
+                          src={iconAyah}
+                          alt="Ayah icon"
+                          style={{
+                            width: "36px",
+                            height: "36px",
+                            filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))",
+                            opacity: "0.9",
+                          }}
+                        />
+
+                        {/* Номер аята */}
+                        <span
+                          className="position-absolute top-50 start-50 translate-middle"
+                          style={{
+                            fontSize: "0.8rem",
+                            fontWeight: "700",
+                            color: "#2a4db5",
+                            textShadow: "0 1px 1px rgba(255,255,255,0.5)",
+                            marginTop: "-1px",
+                          }}
+                        >
+                          {ayah.numberInSurah}
+                        </span>
+                      </span>
+
+                      <span
+                        className="text-start mb-0 arabic-text"
                         style={{
                           fontFamily: "'Lateef', serif",
                           fontSize: "1.8rem",
@@ -162,21 +190,6 @@ function Surah() {
                         }}
                       >
                         {ayah.text}
-                      </p>
-                    </div>
-
-                    {/* Ayah Number */}
-                    <div className="col-3 col-md-1 p-1 bg-primary d-flex justify-content-center">
-                      <span
-                        className="badge rounded-circle bg-white text-primary d-flex align-items-center justify-content-center fw-bold"
-                        style={{
-                          width: "30px",
-                          height: "30px",
-                          fontSize: "0.9rem",
-                          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                        }}
-                      >
-                        {ayah.numberInSurah}
                       </span>
                     </div>
                   </div>
