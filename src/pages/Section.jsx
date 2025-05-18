@@ -6,7 +6,7 @@ function Section() {
     data: response,
     error,
     loading,
-  } = useFetch("http://api.alquran.cloud/v1/surah");
+  } = useFetch("https://api.alquran.cloud/v1/surah");
 
   const surahs = response?.data;
 
