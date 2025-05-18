@@ -42,3 +42,40 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
 }
 
+
+
+/* Стили для активной суры */
+.active-surah {
+  background-color: rgba(78, 115, 223, 0.1) !important;
+  border-left: 3px solid #4e73df !important;
+}
+
+.active-surah .text-muted {
+  color: #4e73df !important;
+}
+
+/* Эффект при наведении */
+.hover-effect:hover {
+  background-color: rgba(78, 115, 223, 0.05) !important;
+  transform: translateX(3px);
+}
+
+/* Стили для скролла */
+.overflow-auto::-webkit-scrollbar {
+  width: 5px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: #4e73df;
+  border-radius: 10px;
+}
+
+/* Для арабского текста */
+.arabic-font {
+  font-family: "'Scheherazade New', serif";
+  font-size: 1.1rem;
+}

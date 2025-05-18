@@ -3,6 +3,7 @@ import useFetch from "../hooks/useFetch";
 import { useEffect, useState } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import iconAyah from "../assets/icon-ayahs.png";
+import { NavLink } from "react-router-dom";
 function Surah() {
   const [selectedQari, setSelectedQari] = useState("ar.abdulbasitmurattal");
   const [selectedTranslation, setSelectedTranslation] = useState("");
