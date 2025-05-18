@@ -10,19 +10,23 @@ function Surah() {
   const [currentlyPlaying, setCurrentlyPlaying] = useState(null);
   const { numberSurah } = useParams();
 
-  const { data: audioQaris } = useFetch(
-    `http://api.alquran.cloud/v1/edition/format/audio`
+  const {
+    data: audioQaris,
+    loading,
+    error,
+  } = useFetch(
+    `https://api.alquran.cloud/v1/edition/format/audio` // ✅ HTTPS
   );
 
   const { data: surahDetail } = useFetch(
-    `http://api.alquran.cloud/v1/surah/${numberSurah}/${selectedQari}`
+    `https://api.alquran.cloud/v1/surah/${numberSurah}/${selectedQari}` // ✅ HTTPS
   );
 
   // Handle translation fetch
   useEffect(() => {
     if (selectedTranslation) {
       fetch(
-        `https://api.alquran.cloud/v1/surah/${numberSurah}/${selectedTranslation}`
+        `https://api.alquran.cloud/v1/surah/${numberSurah}/${selectedTranslation}` // ✅ HTTPS
       )
         .then((res) => res.json())
         .then((data) => setTranslatedSurah(data));
@@ -32,7 +36,7 @@ function Surah() {
   }, [selectedTranslation, numberSurah]);
 
   const { data: surahTranslation } = useFetch(
-    "http://api.alquran.cloud/v1/edition/format/text"
+    "https://api.alquran.cloud/v1/edition/format/text" // ✅ HTTPS
   );
 
   const surahAyahs = surahDetail?.data.ayahs;
@@ -49,6 +53,9 @@ function Surah() {
       setCurrentlyPlaying(ayahNumber);
     }
   };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>error...{error.message}</p>;
 
   return (
     <div className="container py-3 px-0 min-vh-100 bg-light">

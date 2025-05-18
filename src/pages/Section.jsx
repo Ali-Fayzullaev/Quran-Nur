@@ -10,8 +10,8 @@ function Section() {
 
   const surahs = response?.data;
 
-  if (loading) return <p>Юкланяпти...</p>;
-  if (error) return <p>Хатолик юз берди: {error.message}</p>;
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>error...{error.message}</p>;
 
   return (
     <div>
